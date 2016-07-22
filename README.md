@@ -1,3 +1,5 @@
+Sorry for simple guide and bad english ~:<
+
 # Mysql-Docker-For-Bluemix
 
 This is the Git repo of the docker image for mysql.
@@ -8,9 +10,9 @@ It based on offical centos image [centos:centos6.8] and you can mount bluemix sp
 
   --> bluemix volume is NFS4
   
-  --> when containers is start and the user namespace is enabled for docker engine,The effective root inside the container is a non-root       user out side the container process.
-  
   --> UID:GID is 1010:1010 or 0:0
+  
+  --> when containers is start and the user namespace is enabled for docker engine,The effective root inside the container is a non-root       user out side the container process.
   
   --> can not chown where volume is mounted, like /var/lib/mysql
   
@@ -47,8 +49,8 @@ It based on offical centos image [centos:centos6.8] and you can mount bluemix sp
   
   6 do not using chown for /var/lib/mysql,but instead, userID en goupID of mysql should be changed to match /var/lib/mysql
   
-      something like:
-      
+  something like:
+  
       usermod -o -u `stat -c %u /var/lib/mysql` mysql
       
       groupmod -o -g `stat -c %g /var/lib/mysql` mysql
